@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block contents %}
+    <div class="left-bar">
+    </div>
+    <div class="center-bar">
+        <table class="my-table">
+            <tr>
+                <th class="r1">種別</th>
+                <th class="r2">災害名</th>
+                <th class="r3">開始日</th>
+                <th class="r4">終了日</th>
+            </tr>
+            {% for d in disasters %}
+                <tr>
+                    <td class="r1">
+                        {{ d.mode_name }}
+                    </td>
+                    <td class="r2">
+                        <a href="/disaster/{{ d.id }}">{{ d.title }}</a>
+                    </td>
+                    <td class="r3">
+                        {{ d.start_date }}
+                    </td>
+                    <td class="r4">
+                        {{ d.end_date }}
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div class="right-bar">
+        <div>災害名 新規登録</div>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <table>
+                {{ form.as_table }}
+            </table>
+            <button type="submit" name="submit" id="submit" class="submit">登録</button>
+        </form>
+    </div>
+{% endblock %}
