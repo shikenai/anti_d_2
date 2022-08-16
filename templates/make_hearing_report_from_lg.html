@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block contents %}
+    <div class="left-bar">
+        <p>{{ d.title }}</p>
+        <p><a href="/hearing_local_government/{{ d.id }}">市町村聞き取り</a></p>
+    </div>
+    <div class="center-bar">
+        <p>{{ d.title }} に関する市町村からの聞き取り</p>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <table>
+                {{ form.as_table }}
+            </table>
+            <button type="submit" name="submit" id="submit" class="submit">登録</button>
+        </form>
+    </div>
+    <div class="right-bar">
+    </div>
+{% endblock %}

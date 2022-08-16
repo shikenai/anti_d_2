@@ -20,5 +20,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index),
     path('disasters/', views.disasters),
-    path('disaster/<int:disaster_id>', views.disaster)
+    path('disaster/<int:disaster_id>', views.disaster),
+    path('hearing_local_government/<int:disaster_id>', views.make_hearing_local_government)
 ]

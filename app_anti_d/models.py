@@ -1,8 +1,5 @@
 from django.db import models
-from phonenumber_field.modelfields import PhoneNumberField
 
-
-# Create your models here.
 
 class DisasterName(models.Model):
     title = models.CharField(verbose_name='災害名', max_length=20, null=True, blank=True)

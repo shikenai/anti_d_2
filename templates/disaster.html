@@ -1,10 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    {{ d.id }} {{ d.title }}
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block contents %}
+    <div class="left-bar">
+        <p>{{ d.title }}</p>
+        <p><a href="/hearing_local_government/{{ d.id }}">市町村聞き取り</a></p>
+    </div>
+    <div class="center-bar">
+    </div>
+    <div class="right-bar">
+    </div>
+{% endblock %}
