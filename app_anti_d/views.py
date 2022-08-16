@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from app_anti_d.models import DisasterName, LocalGovernments
-from .forms import FormDisasterName, FormHearingReportsFromLocalGovernment
+from .forms import FormDisasterName, FormHearingReports
 
 
 # Create your views here.
@@ -30,18 +30,18 @@ def disaster(request, disaster_id):
     })
 
 
-def make_hearing_local_government(request, disaster_id):
+def make_hearing_report(request, disaster_id):
     _disaster = DisasterName.objects.get(pk=disaster_id)
     _local_governments = LocalGovernments.objects.all()
     if request.method == 'POST':
-        form = FormHearingReportsFromLocalGovernment(request.POST)
+        form = FormHearingReports(request.POST)
         if form.is_valid():
             form.save()
         else:
             pass
-    form = FormHearingReportsFromLocalGovernment(initial={"disaster_name":  _disaster})
+    form = FormHearingReports(initial={"disaster_name":  _disaster})
 
-    return render(request, 'make_hearing_report_from_lg.html', {
+    return render(request, 'make_hearing_report.html', {
         'd': _disaster,
         'form': form,
         'lgs': _local_governments
